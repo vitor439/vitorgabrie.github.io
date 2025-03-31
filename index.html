@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meu Portfólio</title>
+    <style>
+        body { font-family: Arial; max-width: 800px; margin: 0 auto; padding: 20px; }
+        nav { background: #333; padding: 10px; margin-bottom: 20px; }
+        nav a { color: white; margin-right: 15px; text-decoration: none; }
+        section { margin-bottom: 30px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <section id="home">
+        <h1>Bem-vindo ao meu portfólio</h1>
+        <p>Conteúdo da página inicial...</p>
+    </section>
+
+    <section id="sobre" style="display:none">
+        <h1>Sobre Mim</h1>
+        <p>Informações sobre você...</p>
+    </section>
+
+    <section id="contato" style="display:none">
+        <h1>Contato</h1>
+        <form>
+            <input type="text" placeholder="Seu nome"><br>
+            <input type="email" placeholder="Seu email"><br>
+            <textarea placeholder="Mensagem"></textarea><br>
+            <button>Enviar</button>
+        </form>
+    </section>
+
+    <script>
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('section').forEach(s => s.style.display = 'none');
+                document.querySelector(this.getAttribute('href')).style.display = 'block';
+            });
+        });
+        document.querySelector('#home').style.display = 'block';
+    </script>
+</body>
+</html>
